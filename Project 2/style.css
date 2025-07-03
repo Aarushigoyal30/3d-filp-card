@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(375deg, #1cc7d0 , #2ede98);
+}
+
+.flipcard {
+  width: 320px;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.inner-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.flipcard:hover .inner-card {
+  transform: rotateY(180deg);
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.front-face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.back-face {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  transform: rotateY(180deg);
+  padding: 20px;
+}
+
+.back-face img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #1cc7d0;
+  object-fit: cover;
+}
+
+.back-face .info {
+  text-align: center;
+}
+
+.back-face .info .title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.back-face ul {
+  display: flex;
+  gap: 15px;
+}
+
+.back-face ul a {
+  width: 40px;
+  height: 40px;
+  background-color: #e6f7f7;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  color: #1cc7d0;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.back-face ul a:hover {
+  background-color: #1cc7d0;
+  color: white;
+}
